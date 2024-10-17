@@ -6,7 +6,9 @@ use App\Repository\EmployeeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
+#[ApiResource]
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 class Employee
 {
@@ -29,6 +31,8 @@ class Employee
      */
     #[ORM\OneToMany(targetEntity: Schedule::class, mappedBy: 'employee')]
     private Collection $schedules;
+
+
 
     public function __construct()
     {
